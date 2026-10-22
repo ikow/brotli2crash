@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="#key-finding">Key Finding</a> · <a href="#technical-analysis">Analysis</a> · <a href="#poc-tools">PoC Tools</a> · <a href="#detection">Detection</a> · <a href="#lab">Lab</a>
+  <a href="#key-finding">Key Finding</a> · <a href="#technical-analysis">Analysis</a> · <a href="#poc-tools">PoC Tools</a> · <a href="#detection">Detection</a> · <a href="#lab">Lab</a> · <a href="https://qideng.substack.com/p/brotli2crash-the-nodejs-critical-rce-that-cant-fire">Writeup</a>
 </p>
 
 ---
@@ -26,7 +26,7 @@ The Brotli specification caps `MLEN` (metablock uncompressed length) at exactly 
 
 **Practical impact: DoS (infinite CPU loop) via header corruption, not RCE.**
 
-**Author:** [Qi Deng](https://github.com/ikow) &nbsp;|&nbsp; **Date:** 2026-10-22
+**Author:** [Qi Deng](https://github.com/ikow) &nbsp;|&nbsp; **Writeup:** [Substack](https://qideng.substack.com/p/brotli2crash-the-nodejs-critical-rce-that-cant-fire) &nbsp;|&nbsp; **Date:** 2026-10-22
 
 ## CVE Details
 
