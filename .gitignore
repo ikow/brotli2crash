@@ -1,0 +1,7 @@
+node_modules/
+payloads/
+*.br
+results.json
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="700" height="280" fill="url(#bg)" rx="12"/>
+  <rect x="0" y="0" width="700" height="4" fill="url(#accent)" rx="2"/>
+
+  <!-- Title -->
+  <text x="350" y="80" text-anchor="middle" font-family="monospace, Courier" font-size="48" font-weight="bold" fill="#f0f6fc">brotli2crash</text>
+
+  <!-- Subtitle -->
+  <text x="350" y="115" text-anchor="middle" font-family="sans-serif, Arial" font-size="16" fill="#8b949e">CVE-2026-111497 — Node.js Brotli Decoder OOB Write Research</text>
+
+  <!-- Separator -->
+  <line x1="200" y1="135" x2="500" y2="135" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Key equation -->
+  <text x="350" y="170" text-anchor="middle" font-family="monospace, Courier" font-size="20" fill="#f97316">MLEN_MAX = BLOCK_SIZE_CAP = 2^24</text>
+
+  <!-- Conclusion -->
+  <rect x="160" y="195" width="380" height="36" rx="6" fill="#21262d" stroke="#f97316" stroke-width="1"/>
+  <text x="350" y="219" text-anchor="middle" font-family="monospace, Courier" font-size="16" fill="#f0f6fc">RCE: Structurally Unreachable</text>
+
+  <!-- Footer -->
+  <text x="350" y="260" text-anchor="middle" font-family="sans-serif, Arial" font-size="12" fill="#484f58">Deep analysis &amp; structural unreachability proof by Qi Deng (@ikow)</text>
+</svg>

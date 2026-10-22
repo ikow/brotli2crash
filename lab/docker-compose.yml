@@ -1,0 +1,7 @@
+services:
+  vulnerable:
+    build: .
+    ports:
+      - "3000:3000"
+    container_name: brotli-lab
+    restart: unless-stopped
