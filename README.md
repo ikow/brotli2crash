@@ -289,7 +289,10 @@ brotli2crash/
 │   ├── Dockerfile                # Node.js 24.19.0 (pre-patch)
 │   └── server.js                 # Minimal Express 5 + body-parser 2.x app
 └── docs/
-    └── cover.svg                 # Repo cover image
+    ├── cover.svg                 # Repo cover image
+    ├── substack_cover.svg        # Substack article cover image (source)
+    ├── substack_article.md       # Full Substack writeup (source markdown)
+    └── publish_substack.py       # Substack publishing script
 ```
 
 ## Timeline

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="50%" style="stop-color:#131922"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="blur1">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1456" height="600" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#f0f6fc" stroke-width="0.5" fill="none">
+    <line x1="0" y1="100" x2="1456" y2="100"/>
+    <line x1="0" y1="200" x2="1456" y2="200"/>
+    <line x1="0" y1="300" x2="1456" y2="300"/>
+    <line x1="0" y1="400" x2="1456" y2="400"/>
+    <line x1="0" y1="500" x2="1456" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+    <line x1="1200" y1="0" x2="1200" y2="600"/>
+  </g>
+
+  <!-- Glow effect behind equation -->
+  <ellipse cx="728" cy="310" rx="400" ry="120" fill="url(#glow)" filter="url(#blur1)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1456" height="5" fill="url(#accent)"/>
+
+  <!-- Left decorative code lines (faded) -->
+  <g font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="13" fill="#30363d" opacity="0.5">
+    <text x="60" y="110">#define BROTLI_SAFE(METHOD)</text>
+    <text x="60" y="130">  {</text>
+    <text x="60" y="150">    if (safe) {</text>
+    <text x="60" y="170">      if (!Safe##METHOD) {</text>
+    <text x="60" y="190">        result = NEEDS_MORE_INPUT;</text>
+    <text x="60" y="210">        goto saveStateAndReturn;</text>
+    <text x="60" y="230">      }</text>
+    <text x="60" y="250">    } else {</text>
+    <text x="60" y="270"><tspan fill="#f9731680">      METHOD;  // drops return</tspan></text>
+    <text x="60" y="290">    }</text>
+    <text x="60" y="310">  }</text>
+  </g>
+
+  <!-- Right decorative code lines (faded) -->
+  <g font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="13" fill="#30363d" opacity="0.5">
+    <text x="1050" y="340">do {</text>
+    <text x="1050" y="360">  if (block_length[0]==0)</text>
+    <text x="1050" y="380"><tspan fill="#16a76580">    goto NextLiteralBlock;</tspan></text>
+    <text x="1050" y="400">  // ... read literal ...</text>
+    <text x="1050" y="420">  --block_length[0];</text>
+    <text x="1050" y="440">} while (--i != 0);</text>
+    <text x="1050" y="460"><tspan fill="#16a76580">// ^ exits: i==0, never fires</tspan></text>
+  </g>
+
+  <!-- Main title -->
+  <text x="728" y="165" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="64" font-weight="bold" fill="#f0f6fc" letter-spacing="-1">brotli2crash</text>
+
+  <!-- CVE badge -->
+  <rect x="549" y="185" width="358" height="30" rx="15" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="728" y="206" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="14" fill="#8b949e">CVE-2026-111497  ·  Node.js Brotli OOB Write</text>
+
+  <!-- Key equation box -->
+  <rect x="298" y="252" width="860" height="68" rx="8" fill="#161b22" stroke="#f97316" stroke-width="1.5" opacity="0.9"/>
+  <text x="728" y="276" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="13" fill="#8b949e">RFC 7932 §9.1                                                state.h:394</text>
+  <text x="728" y="304" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="26" font-weight="bold" fill="#f97316">MLEN_MAX  =  BLOCK_SIZE_CAP  =  2²⁴  =  16,777,216</text>
+
+  <!-- Arrow down -->
+  <polygon points="728,335 718,345 738,345" fill="#f97316" opacity="0.6"/>
+
+  <!-- Verdict box -->
+  <rect x="428" y="360" width="600" height="52" rx="8" fill="#0d1117" stroke="#16a765" stroke-width="1.5"/>
+  <text x="728" y="393" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="22" fill="#16a765">Block switch: structurally unreachable</text>
+
+  <!-- RCE crossed out -->
+  <g transform="translate(728, 445)">
+    <text x="0" y="0" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace, Courier" font-size="18" fill="#484f58">Remote Code Execution</text>
+    <line x1="-120" y1="-6" x2="120" y2="-6" stroke="#ef4444" stroke-width="2.5" opacity="0.8"/>
+  </g>
+
+  <!-- Subtext -->
+  <text x="728" y="478" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif, Arial" font-size="16" fill="#8b949e">Deep Analysis  ·  Structural Proof  ·  PoC Tools  ·  Detection Scripts</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="595" width="1456" height="5" fill="url(#accent)" opacity="0.4"/>
+
+  <!-- Author -->
+  <text x="728" y="555" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif, Arial" font-size="14" fill="#484f58">Qi Deng (@ikow)  ·  Security Research</text>
+</svg>
